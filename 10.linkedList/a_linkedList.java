@@ -150,7 +150,7 @@ public class a_linkedList {
             prev = curr;
             curr = next;
         }
-        //update the head bcz at the end of every loop curr initialise again prev with head
+        //update the head bcz at the end of every loop curr became null and prev became new head of reversed ll
         head = prev;
     }
 
@@ -212,7 +212,7 @@ public class a_linkedList {
             curr = next;
         }
 
-        node right = prev; //right half head
+        node right = prev;  //bcz prev is now the starting node of second half after reverse
         node left = head;
 
         //step3 - check 1st and 2nd half
@@ -230,9 +230,9 @@ public class a_linkedList {
         a_linkedList ll = new a_linkedList();
         ll.addFirst(2); 
         ll.addFirst(1);
-        ll.addLast(3);
-        ll.addLast(4);
-        ll.addMiddle(2,9);
+        ll.addLast(2);
+        ll.addLast(1);
+        //ll.addMiddle(2,9);
 
         ll.print();
         //System.out.println(ll.size);
@@ -246,7 +246,8 @@ public class a_linkedList {
         // ll.reverse();
         // ll.print();
 
-        ll.deleteNthFromEnd(3);
+        //ll.deleteNthFromEnd(3);
+        ll.palindrome();
         ll.print();
     }
 }

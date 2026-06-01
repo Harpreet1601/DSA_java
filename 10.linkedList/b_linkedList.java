@@ -1,47 +1,45 @@
 public class b_linkedList{
-   public static class node{
-        int data;
-        node next;
-
-        public node(int data){
-            this.data = data;
-            this.next = null;
-        }
-   }
-
-   public static node head;
-   public static node tail;
-
-   //Methods
-   public void addFirst(int data){
-     node newNode = new node(data);
-
-     if(head == null){
-          head = tail = newNode;
-          return;
-     }
-     newNode.next = head;
-     head = newNode;
+     public static class Node{
+          int data;
+          Node next;
+          
+          public Node(int data){
+               this.data = data;
+               this.next = null;
+          }
      }
 
-     //addlast
-     public void addLast(int data){
-          node newNode = new node(data);
+     public static Node head;
+     public static Node tail;
+
+     public static void addFirst(int data){
+          Node newNode = new Node(data);
+
           if(head == null){
-               head = tail = head;
+               head = tail = newNode;
+               return;
+          }
+          newNode.next = head;
+          head = newNode;
+     }
+
+     public static void addLast(int data){
+          Node newNode = new Node(data);
+
+          if(head == null){
+               head = tail = newNode;
                return;
           }
           tail.next = newNode;
           tail = newNode;
      }
 
-     public void print(){
+     public static void print(){
           if(head == null){
-               System.out.println("LL is empty");
-               return;
+               System.out.println("ll is empty");
           }
-          
-          node temp = head;
+
+          Node temp = head;
           while(temp != null){
                System.out.print(temp.data + "->");
                temp = temp.next;
@@ -49,9 +47,15 @@ public class b_linkedList{
           System.out.println("null");
      }
 
-     public void addMiddle(int idx, int data){
-          node newNode = new node(data);
-          node temp = head;
+     public static void addMiddle(int data,int idx){
+          Node newNode = new Node(data);
+          if(idx == 0){
+               newNode.next = head;
+               head = newNode;
+               return;
+          }
+
+          Node temp = head;
           int i = 0;
 
           while(i < idx-1){
@@ -63,50 +67,102 @@ public class b_linkedList{
           temp.next = newNode;
      }
 
-     public int removeFirst(){
-          //int val = head.data;
-          head = head.next;
-          return head.data;
-     }
-
-     public int removeLast(){
+     public static int removeFirst(){
           if(head == null){
-               System.out.println("LL is empty");
-               return Integer.MIN_VALUE;
-          }else if(head.next == null){
-               head = tail = null;
+               System.out.println("ll is empty");
                return -1;
           }
-
-          node temp = head;
-          while(temp.next.next != null){
-               temp = temp.next;
+          if(head.next == null){
+               int val = head.data;
+               head = tail = null;
+               return val;
           }
 
-          //int val = temp.next.data;
-          temp.next = null;
-          tail = temp;
-          return  temp.next.data;
+          int val = head.data;
+          head = head.next;
+          return val;
      }
 
-     public int search(int key){
-          node temp = head;
-          int i=0;
+     public static int removeLast(){
+          if(head == null){
+               System.out.println("ll is empty");
+               return -1;
+          }
+          if(head.next == null){
+               int val = head.data;
+               head = tail = null;
+               return val;
+          }
 
+          Node prev = head;
+          while(prev.next.next != null){
+               prev = prev.next;
+          }
+          int val = prev.next.data;
+          prev.next = null;
+          tail = prev;
+          return val;
+     }
+
+     public static void reverse(){
+          Node prev = null;
+          Node curr = head = tail;
+          Node next;
+
+          while(curr != null){
+               next = curr.next;
+               curr.next = prev;
+               prev = curr;
+               curr = next;
+          }
+          head = prev;
+     }
+
+     public static void deleteNthFromEnd(int n){
+          int size = 0;
+          Node temp = head;
           while(temp != null){
-               if(temp.data == key){
-                    return i;
-               }
                temp = temp.next;
+               size++;
+          }
+
+          if(n == size){
+               head = head.next;
+               return;
+          }
+
+          int i = 0;
+          int idxToFind = size-n;
+          Node prev = head;
+          while(i < idxToFind-1){
+               prev = prev.next;
                i++;
           }
-          return -1;
+          prev.next = prev.next.next;
+          return;
      }
 
-     public void reverse(){
-          node prev = null;
-          node curr = head = tail;
-          node next;
+     public Node findMid(Node head){
+          Node slow = head;
+          Node fast = head;
+
+          while(fast != null && fast.next != null){
+               slow = slow.next;
+               fast = fast.next.next;
+          }
+          return slow;
+     }
+
+     public boolean palindrome(){
+          if(head == null || head.next == null){
+               return true;
+          }
+
+          Node midNode = findMid(head);
+
+          Node prev = null;
+          Node curr = midNode;
+          Node next;
 
           while(curr != null){
                next = curr.next;
@@ -115,64 +171,8 @@ public class b_linkedList{
                curr = next;
           }
 
-          head = prev;
-     }
-
-     public void deleteNthFromEnd(int n){
-          int size = 0;
-          node temp = head;
-          while(temp != null){
-               temp = temp.next;
-               size++;
-          }
-
-          if(size == n){
-               head = head.next;
-               return;
-          }
-
-          int i=1;
-          int idxToFind = size-n;
-          node prev = head;
-          while(i < idxToFind){
-               prev = prev.next;
-               i++;
-          }
-          prev.next = prev.next.next;
-          return;
-     }
-
-     public node findMid(node head){
-          node slow = head;
-          node fast = head;
-
-          while(fast.next != null && fast.next.next != null){
-               slow = slow.next;
-               fast = fast.next.next;
-          }
-          return slow;
-     }
-
-     public boolean palindrome(){
-          if(head == null || head.next != null){
-               return true;
-          }
-
-          node midNode = findMid(head);
-
-          node prev = null;
-          node curr = midNode;
-          node next;
-
-          while(curr != null){
-               next = curr.next;
-               curr.next = head;
-               prev = curr;
-               curr = next;
-          }
-
-          node right = prev;
-          node left = head;
+          Node right = prev;    //bcz prev is now the starting node of second half after reverse
+          Node left = head;
 
           while(right != null){
                if(left.data != right.data){
@@ -181,20 +181,20 @@ public class b_linkedList{
                left = left.next;
                right = right.next;
           }
-          return true;
+          return false;
      }
    public static void main(String[] args) {
-     b_linkedList ll = new b_linkedList();
-     ll.addFirst(2);
-     ll.addFirst(1);
-     ll.addLast(3);
-     ll.addLast(4);
-     ll.addMiddle(2,10);
-     ll.print();
+     //b_linkedList ll = new b_linkedList();
+     // ll.addFirst(2);
+     // ll.addFirst(1);
+     // ll.addLast(3);
+     // ll.addMiddle(10,2);
+     // ll.addMiddle(4,4);
 
-     //ll.removeFirst();
-     //ll.removeLast();
-     //ll.deleteNthFromEnd(2);
-     ll.print();
+     // //ll.removeFirst();
+     // //ll.removeLast();
+     // //ll.reverse();
+     // //ll.deleteNthFromEnd(2);
+     // ll.print();
    }
 }
