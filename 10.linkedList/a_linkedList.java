@@ -182,28 +182,24 @@ public class a_linkedList {
     }
 
     //PALINDROME
-    public node findMid(node head){
+    public boolean palindrome(){
+        if(head == null || head.next == null){
+            return true;
+        }
+        
         node slow = head;
         node fast = head;
 
         //loop to find mid
+        //when fast reaches to null our slow became the midNode
         while(fast != null && fast.next != null) {
             slow = slow.next; //+1
             fast = fast.next.next; //+2
         }
-        return slow; //slow is my mid node here
-    }
-
-    public boolean palindrome(){
-        if(head == null || head.next != null){
-            return true;
-        }
-        //step1 - find mid
-        node midNode = findMid(head);
 
         //step2 - reverse 2nd half
         node prev = null;
-        node curr = midNode;
+        node curr = slow;
         node next;
         while(curr != null){
             next = curr.next;
