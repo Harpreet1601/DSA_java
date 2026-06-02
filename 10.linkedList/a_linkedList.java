@@ -199,7 +199,7 @@ public class a_linkedList {
 
         //step2 - reverse 2nd half
         node prev = null;
-        node curr = slow;
+        node curr = slow.next;
         node next;
         while(curr != null){
             next = curr.next;
