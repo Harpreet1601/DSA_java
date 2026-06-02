@@ -131,10 +131,11 @@ public class b_linkedList{
                return;
           }
 
-          int i = 0;
+          int i = 1;
           int idxToFind = size-n;
           Node prev = head;
-          while(i < idxToFind-1){
+
+          while(i < idxToFind){
                prev = prev.next;
                i++;
           }
@@ -183,18 +184,18 @@ public class b_linkedList{
           }
           return false;
      }
-   public static void main(String[] args) {
-     //b_linkedList ll = new b_linkedList();
-     // ll.addFirst(2);
-     // ll.addFirst(1);
-     // ll.addLast(3);
-     // ll.addMiddle(10,2);
-     // ll.addMiddle(4,4);
+//    public static void main(String[] args) {
+//      b_linkedList ll = new b_linkedList();
+//      ll.addFirst(2);
+//      ll.addFirst(1);
+//      ll.addLast(3);
+//      ll.addMiddle(10,2);
+//      //ll.addMiddle(4,4);
 
-     // //ll.removeFirst();
-     // //ll.removeLast();
-     // //ll.reverse();
-     // //ll.deleteNthFromEnd(2);
-     // ll.print();
-   }
+//      // //ll.removeFirst();
+//      // //ll.removeLast();
+//      // //ll.reverse();
+//      ll.deleteNthFromEnd(2);
+//      ll.print();
+//    }
 }

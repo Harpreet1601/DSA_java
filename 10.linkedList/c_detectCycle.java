@@ -22,6 +22,14 @@ public class c_detectCycle {
 
             if(slow == fast){
                 return true;
+
+                //Now, code for return the node from where cycle was starts
+                // Node start = head;
+                // while(start != slow){
+                //     slow = slow.next;
+                //     start = start.next;
+                // }
+                // return start;
             }
         }
         return false;
