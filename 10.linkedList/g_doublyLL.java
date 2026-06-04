@@ -56,6 +56,6 @@ public class g_doublyLL {
         }
     }
     public static void main(String[] args) {
-        g_doublyLL dll = new g_doublyLL();
+        //g_doublyLL dll = new g_doublyLL();
     }
 }
