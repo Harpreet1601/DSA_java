@@ -11,22 +11,22 @@ public class i_validParenthesis {
                 s.push(ch);
             }else{
                 //closing
-                if(s.isEmpty()){
+                if(s.isEmpty()){   //it means no opening brackets is present
                     return false;
                 }
                 if((s.peek() == '(' && ch == ')')
                     || (s.peek() == '{' && ch == '}')
                     || (s.peek() == '[' && ch == ']')){
                         s.pop();
-                }else{
-                    return false;
+                }else{             
+                    return false;   //when successfull pair is not form
                 }
             }
         }
         if(s.isEmpty()){
             return true;
         }else{
-            return false;
+            return false;    //when we still left no matching bracket at starting of the string
         }
     }
     public static void main(String[] args) {
