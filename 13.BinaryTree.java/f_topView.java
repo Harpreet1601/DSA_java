@@ -86,20 +86,63 @@ public class f_topView {
     }
 }
 /*
-Top View of Binary Tree:
+Top View of Binary Tree Approach:
 
-1. Perform BFS traversal.
-2. Track horizontal distance (HD) of every node.
-3. Root HD = 0
-   Left -> HD-1
-   Right -> HD+1
-4. Store first node seen at each HD in HashMap.
-5. Use queue to process nodes level by level.
-6. Finally print nodes from smallest HD to largest HD.
+Idea:
+- View tree from top, so for every vertical line (Horizontal Distance)
+  we only store the first node we encounter.
+
+Data Structures:
+1. Queue<info>
+   - Used for level order traversal (BFS).
+   - Stores node + its horizontal distance (HD).
+
+2. HashMap<Integer, Node>
+   - Stores first node at every HD.
+   - Key = HD
+   - Value = Node
+
+Algorithm:
+1. Start BFS traversal from root with HD = 0.
+2. Use null marker to separate levels (optional for level order).
+3. For every node:
+   - If current HD is not present in map:
+       store node (because it is the topmost node).
+   - If HD already exists:
+       ignore node.
+
+4. For left child:
+      HD = current HD - 1
+
+5. For right child:
+      HD = current HD + 1
+
+6. Track minimum and maximum HD:
+   - min = leftmost vertical line
+   - max = rightmost vertical line
+
+7. Finally print nodes from min HD to max HD.
 
 Why BFS?
-Because the first node reached at an HD is the topmost node.
+Because BFS visits upper levels first, so the first node
+found at an HD is always visible from the top.
 
-Time: O(N log N)
-Space: O(N)
+Example:
+        1
+       / \
+      2   3
+       \
+        4
+
+HD:
+2 -> -1
+1 ->  0
+3 ->  1
+4 ->  0 (ignored)
+
+Answer:
+2 1 3
+
+Time Complexity: O(N)
+Space Complexity: O(N)
 */
