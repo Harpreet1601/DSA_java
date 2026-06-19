@@ -36,7 +36,7 @@ public class i_minDistance {
 
     public static int lcaDist(Node root, int n){
         if(root == null){
-            return -1;
+            return -1;          //-1 mean node does not exists
         }
 
         if(root.data == n){
@@ -89,3 +89,15 @@ public class i_minDistance {
         System.out.println(distance(root, n1, n2));
     }
 }
+/*
+Approach: Find Minimum Distance Between Two Nodes
+
+1. Find the Lowest Common Ancestor (LCA) of both nodes.
+2. The shortest path between two nodes always passes through LCA.
+3. Find distance from LCA to first node.
+4. Find distance from LCA to second node.
+5. Add both distances to get the minimum distance.
+6. Use recursion to search nodes in left and right subtrees.
+7. Return -1 if node is not found during distance calculation.
+8. Time: O(N), Space: O(H) due to recursion stack.
+*/
