@@ -39,7 +39,7 @@ public class b_deleteNode {
         else if(root.data > val){
             root.left = delete(root.left, val);
         }
-        else{  //this is the case where we find the node to delete
+        else{  //(root.data == key) this is the case where we find the node to delete
 
             //case1 = leaf node
             if(root.left == null && root.right == null){

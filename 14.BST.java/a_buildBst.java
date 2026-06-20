@@ -1,3 +1,4 @@
+import java.util.*;
 public class a_buildBst {
     static class Node{
         int data;
@@ -48,6 +49,45 @@ public class a_buildBst {
             return search(root.right, key);
         }
     }
+
+    public static void printInRange(Node root, int k1, int k2){
+        if(root == null){
+            return;
+        }
+
+        if(root.data >= k1 && root.data <= k2){
+            printInRange(root.left, k1, k2);
+            System.out.print(root.data + " ");
+            printInRange(root.right, k1, k2);
+        }
+
+        else if(root.data < k1){
+            printInRange(root.right, k1, k2);
+        }else{
+            printInRange(root.left, k1, k2);
+        }
+    }
+
+    public static void printPath(ArrayList<Integer> path){
+        for(int i=0; i<path.size(); i++){
+            System.out.print(path.get(i) + "->");
+        }
+        System.out.println("NULL");
+    }
+    public static void printRoot2Leaf(Node root, ArrayList<Integer> path){
+        if(root == null){
+            return;
+        }
+
+        path.add(root.data);
+        if(root.left == null && root.right == null){
+            printPath(path);
+        }
+
+        printRoot2Leaf(root.left, path);
+        printRoot2Leaf(root.right, path);
+        path.remove(path.size()-1);
+    }
     public static void main(String args[]){
         int values[] = {5,1,3,4,2,7};
         Node root = null;
@@ -59,9 +99,13 @@ public class a_buildBst {
         // inorder(root);
         // System.out.println();
 
-        if(search(root,1)){
-            System.out.println("found");
-        }
+        // if(search(root,1)){
+        //     System.out.println("found");
+        // }
+
+        //printInRange(root, 3, 7);
+
+        printRoot2Leaf(root, new ArrayList<>());
     }
 }
 // insert():
