@@ -1,19 +1,25 @@
 public class practice {
-    public static void hollowRectangle(int totalRows, int totalCols){
-        for(int i=1; i<=totalRows; i++){
-            for(int j=1; j<=totalCols; j++){
-                if(i == 1 || i == totalRows || j == 1 || j == totalCols){
-                    System.out.print("*");
-                }else{
-                    System.out.print(" ");
-                }
-            }
-            System.out.println();
-        }
+   public static void subarray(int num[]){
+    int n = num.length;
+
+    int leftmax[] = new int[n];
+    leftmax[0] = num[0];
+    for(int i=1; i<n; i++){
+
     }
 
+    int rightmax[] = new int[n];
+    rightmax[n-1] = num[n-1];
+    for(int i=n-2; i>=0; i--){
+
+    }
+
+    int trappedRainwater = 0;
+
     
+
+}   
     public static void main(String[] args) {
-        //hollowRectangle(5,5 );
+        int num[] = {2,4,6,8,10};
     }
 }

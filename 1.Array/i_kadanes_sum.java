@@ -6,10 +6,12 @@ public class i_kadanes_sum {
 
         for(int i=0; i<num.length; i++){
             currSum = currSum + num[i];
+            maxSum = Math.max(currSum,maxSum);
+            
             if(currSum<0){
                 currSum=0;
             }  
-            maxSum = Math.max(currSum,maxSum);
+            
         }
         System.out.println("Max subarray sum is : "+ maxSum);
     }
