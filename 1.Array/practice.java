@@ -1,25 +1,24 @@
+import java.util.*;
 public class practice {
-   public static void subarray(int num[]){
-    int n = num.length;
+    public static void search(int matrix[][], int key){
+        int row = 0, col = matrix[0].length-1;
 
-    int leftmax[] = new int[n];
-    leftmax[0] = num[0];
-    for(int i=1; i<n; i++){
-
+        while(row < matrix.length && col >= 0){
+            if(matrix[row][col] == key){
+                System.out.println(row +","+col);
+            } 
+            else if(key < matrix[row][col]){
+                col--;
+            }else{
+                row++;
+            }
+        }
     }
-
-    int rightmax[] = new int[n];
-    rightmax[n-1] = num[n-1];
-    for(int i=n-2; i>=0; i--){
-
-    }
-
-    int trappedRainwater = 0;
-
-    
-
-}   
     public static void main(String[] args) {
-        int num[] = {2,4,6,8,10};
+        int matrix[][] = {{1,2,3,4},
+                          {5,6,7,8},
+                          {9,10,11,12},
+                          {13,14,15,16}};
+        
     }
 }

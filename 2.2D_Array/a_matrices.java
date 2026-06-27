@@ -1,5 +1,4 @@
-//Searching in Matrix
-
+ //Searching in Matrix
 
 // import java.util.*;
 // public class a_matrices {
@@ -17,7 +16,7 @@
 //     }
 //     public static void main(String[] args) {
 //         int matrix[][] = new int [3][3];
-//         int n=matrix.length ,m=matrix[0].length;
+//         int n=matrix.length ,m=matrix[0].length;  //length of column = total elements in 0th row
 
 //         //Input
 //         Scanner sc = new Scanner(System.in);
