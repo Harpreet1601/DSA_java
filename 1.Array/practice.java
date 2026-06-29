@@ -1,24 +1,35 @@
 import java.util.*;
 public class practice {
-    public static void search(int matrix[][], int key){
-        int row = 0, col = matrix[0].length-1;
+    public static int search(int arr[], int target, int si, int ei){
+        if(si >= ei){
+            return -1;
+        }
 
-        while(row < matrix.length && col >= 0){
-            if(matrix[row][col] == key){
-                System.out.println(row +","+col);
-            } 
-            else if(key < matrix[row][col]){
-                col--;
+        int mid = si + (ei-si)/2;
+
+        if(arr[mid] == target){
+            return mid;
+        }
+
+        if(arr[si] < arr[mid]){
+            if(arr[si] <= target && target <= arr[mid]){
+                return search(arr,target, si, mid-1);
             }else{
-                row++;
+                return search(arr, target, mid+1, ei);
+            }
+        }
+
+        else{
+            if(arr[mid] <= target && target <= arr[ei]){
+                return search(arr,target, mid+1, ei);
+            }else{
+                return search(arr, target, si, mid-1);
             }
         }
     }
     public static void main(String[] args) {
-        int matrix[][] = {{1,2,3,4},
-                          {5,6,7,8},
-                          {9,10,11,12},
-                          {13,14,15,16}};
+    int arr[] = {4,5,6,7,0,1,2};
+        int target = 0;
         
     }
 }
