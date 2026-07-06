@@ -21,3 +21,11 @@ public class b_findSubsets {
        subsets(str, " ", 0);
     }
 }
+
+// Immutable objects (like String): the function call stack handles the "backtracking" because each call gets its own value.
+
+// Mutable objects (like arrays, StringBuilder, lists): you usually need an explicit undo step after the recursive call
+// because all calls share the same object.
+
+// This distinction—between immutable and mutable data—is the key reason why your subset code doesn't need a separate 
+// backtracking statement even though it is using a backtracking-style recursive search.
