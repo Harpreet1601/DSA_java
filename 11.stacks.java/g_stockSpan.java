@@ -12,12 +12,12 @@ public class g_stockSpan {
 
         for(int i=1; i<stock.length; i++){
             int currPrice = stock[i];
-            while(!s.isEmpty() && currPrice > stock[s.peek()]){
+            while(!s.isEmpty() && currPrice >= stock[s.peek()]){
                 s.pop();
             }
 
             if(s.isEmpty()){
-                span[i] = i+1;
+                span[i] = i + 1;
             }else{
                 int prevHigh = s.peek();
                 span[i] = i - prevHigh;

@@ -26,7 +26,7 @@ public class i_validParenthesis {
         if(s.isEmpty()){
             return true;
         }else{
-            return false;    //when we still left no matching bracket at starting of the string
+            return false;    //it means we still left some bracket at starting of the string who are not matching to anyone
         }
     }
     public static void main(String[] args) {
