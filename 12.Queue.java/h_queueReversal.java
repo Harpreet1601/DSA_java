@@ -1,4 +1,4 @@
-import java.util.*;
+ import java.util.*;
 public class h_queueReversal {
     public static void reverse(Queue<Integer> q){
         Stack<Integer> s = new Stack<>();

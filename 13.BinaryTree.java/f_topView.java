@@ -146,3 +146,17 @@ Answer:
 Time Complexity: O(N)
 Space Complexity: O(N)
 */
+
+// Info = a packet containing (Node, Horizontal Distance).
+
+// new Info(node, hd) creates that packet.
+
+// curr.node gives the actual tree node.
+
+// curr.hd gives its horizontal distance.
+
+// map.containsKey(curr.hd) checks whether that horizontal distance has already been seen.
+
+// new Info(curr.node.left, curr.hd-1) adds the left child with its updated horizontal distance.
+
+// Once you think of Info as a packet carrying two values together, the entire Top View code becomes much easier to visualize.

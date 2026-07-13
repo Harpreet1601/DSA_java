@@ -52,3 +52,13 @@ public class k_sumTree {
         System.out.println(sumTree(root));
     }
 }
+
+// leftSum/rightSum → child's original value
+
+// newLeft/newRight → child's subtree sum
+
+// data → save current node before changing it
+
+// root.data = ... → store total sum of left and right subtrees
+
+// return data → give the original value back to the parent

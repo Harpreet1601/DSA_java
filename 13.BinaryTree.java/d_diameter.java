@@ -58,13 +58,13 @@ public class d_diameter {
         // }
 
         //T.C = O(n)  -- Optimised way
-        //int diameter[] = new int[1];
-        // public int diameterOfBinaryTree(TreeNode root) {
+        // int diameter = 0;
+        // public int diameterOfBinaryTree(Node root) {
         //     height(root);
-        //     return diameter[0];
+        //     return diameter;
         // }
 
-        // public int height(TreeNode root){
+        // public int height(Node root){
         //     if(root == null){
         //         return 0;
         //     }
@@ -73,7 +73,7 @@ public class d_diameter {
         //     int rightHeight = height(root.right);
 
         //     int currDiameter = leftHeight + rightHeight;
-        //     diameter[0] = Math.max(diameter[0], currDiameter);
+        //     diameter = Math.max(diameter, currDiameter);
 
         //     return Math.max(leftHeight, rightHeight) + 1;
         // }
@@ -84,6 +84,6 @@ public class d_diameter {
             // BinaryTree tree = new BinaryTree();
             // Node root = tree.buildPreorder(nodes);
 
-            // System.out.println(tree.diameter(root));
+             //System.out.println(tree.diameter(root));
         }    
 }
