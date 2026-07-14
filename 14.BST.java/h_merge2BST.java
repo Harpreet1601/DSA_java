@@ -31,8 +31,8 @@ public class h_merge2BST {
 
         int mid = (start+end)/2;
         Node root = new Node(arr.get(mid));
-        createBST(arr, start, mid-1);
-        createBST(arr, mid+1, end);
+        root .left = createBST(arr, start, mid-1);
+        root.right = createBST(arr, mid+1, end);
 
         return root;
     }

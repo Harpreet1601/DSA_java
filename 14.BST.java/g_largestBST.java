@@ -16,7 +16,7 @@ public class g_largestBST {
         int min;
         int max;
 
-        public info(boolean isBST, int min, int max, int size){
+        public info(boolean isBST, int size, int min, int max){
             this.isBST = isBST;
             this.size = size;
             this.min = min;
