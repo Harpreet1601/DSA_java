@@ -192,7 +192,7 @@ public class a_linkedList {
 
         //loop to find mid
         //when fast reaches to null our slow became the midNode
-        while(fast != null && fast.next != null) {
+        while(fast.next != null && fast.next.next != null) {
             slow = slow.next; //+1
             fast = fast.next.next; //+2
         }
