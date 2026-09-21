@@ -1,0 +1,19 @@
+public class q_reverseNumber {
+    public static int practice(int n){
+       int reverse = 0;
+
+       while(n > 0){
+            int digit = n%10;
+            reverse = reverse*10 + digit;
+            n = n/10;
+       }
+
+       return reverse;
+    }
+
+    public static void main(String[] args) {
+
+        int n = 12345;
+        System.out.println(practice(n));
+    }
+}

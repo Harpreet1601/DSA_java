@@ -18,3 +18,42 @@ public class k_primes_in_array {
             }
         }
 }
+
+
+
+
+//print prime btn numbers
+// public class practice {
+//     public static boolean practice(int n){
+//       if(n < 2){
+//         return false;
+//       }
+
+//       for(int i=2; i<n; i++){
+//         if(n%i == 0){
+//             return false;
+//         }
+//     }
+//         return true;
+//     }
+
+//     public static void primes(int start, int end){
+//         for(int i=start; i<=end; i++){
+//             if(practice(i)){
+//                 System.out.println(i + " ");
+//             }
+//         }
+//     }
+
+//      public static void main(String[] args) {
+//         int start = 0;
+//         int end = 20;
+        
+
+//         primes(start, end);
+//         //System.out.print(practice(n));
+//         // boolean result = practice(str);
+//         // System.out.println(result);
+      
+//     }
+// }

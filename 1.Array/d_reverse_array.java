@@ -11,8 +11,8 @@ public class d_reverse_array {
             first++;
             last--;
         }
-        for(int i=0;i<num.length-1;i++){
-            System.out.print(num);
+        for(int i=0;i<num.length;i++){
+            System.out.print(num[i]);
         }
         System.out.println();
     }
