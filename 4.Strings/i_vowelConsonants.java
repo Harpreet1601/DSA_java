@@ -1,5 +1,5 @@
 public class i_vowelConsonants {
-    public static String practice(String str){
+    public static void practice(String str){
       int vowels = 0;
       int consonants = 0;
 
@@ -13,25 +13,28 @@ public class i_vowelConsonants {
         }
       }
 
-      if(vowels > 2){
-        String result = " ";
+      System.out.println(vowels);
+      System.out.println(consonants);
 
-        for(int i=str.length()-1; i>=0; i--){
-          result = result + str.charAt(i);
-        }
+      // if(vowels > 2){
+      //   String result = " ";
 
-        return result;
-      }else{
-        return String.valueOf(consonants);
-      }
+      //   for(int i=str.length()-1; i>=0; i--){
+      //     result = result + str.charAt(i);
+      //   }
+
+      //   return result;
+      // }else{
+      //   return String.valueOf(consonants);
+      // }
     }
 
      public static void main(String[] args) {
         String str = "education";
         
 
-        
-        System.out.print(practice(str));
+        practice(str);
+       // System.out.print(practice(str));
         // boolean result = practice(str);
         // System.out.println(result);
       
