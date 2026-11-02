@@ -1,16 +1,16 @@
 public class f_string_compression {
     public static String compression(String str) {
-        String newStr = " ";
+        String newStr = "";
 
         for(int i=0; i<str.length(); i++){
-            Integer count = 1;   //here use integer object bcz in last we have to convert it into string
-            while(str.charAt(i) == str.charAt(i+1) && i<str.length()-1){
+            int count = 1;   //here use integer object bcz in last we have to convert it into string
+            while(i<str.length()-1 && str.charAt(i) == str.charAt(i+1)){
                 count++;
                 i++;
             }
             newStr += str.charAt(i);
             if(count > 1){
-                newStr += count.toString();
+                newStr += count;
             }
         }
         return newStr;
